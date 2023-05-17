@@ -1,3 +1,16 @@
+<?php
+require 'models/estudiante.php';
+require 'controllers/conexionDbController.php';
+require 'controllers/baseController.php';
+require 'controllers/estudiantesController.php';
+
+use estudianteController\EstudianteController;
+
+$estudianteController = new EstudianteController();
+
+$estudiantes = $estudianteController->read();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
