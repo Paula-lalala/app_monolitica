@@ -39,12 +39,12 @@ if(!empty($codigo)){
         <br>
         <label>
             <span>Nombre:</span>
-            <input type="text" name="nombre" value ="<?php echo $estudiante->getNombres(); ?>" required>
+            <input type="text" name="nombres" value ="<?php echo $estudiante->getNombres(); ?>" required>
         </label>
         <br>
         <label>
             <span>Apellidos:</span>
-            <input type="text" name="apellido" value ="<?php echo $estudiante->getApellidos(); ?>" required>
+            <input type="text" name="apellidos" value ="<?php echo $estudiante->getApellidos(); ?>" required>
         </label>
         <button type="submit">Guardar</button>
     </form>

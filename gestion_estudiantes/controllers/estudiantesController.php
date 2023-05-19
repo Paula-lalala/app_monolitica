@@ -24,7 +24,7 @@ class EstudianteController extends BaseController
         return $resultadoSQL;
     }
     
-    function update ($codigo, $estudiante){
+    function update($codigo, $estudiante){
         $sql="update estudiantes set ";
         $sql .= 'nombres="' . $estudiante->getNombres().'",';
         $sql .= 'apellidos="' . $estudiante->getApellidos().'" ';
@@ -33,8 +33,8 @@ class EstudianteController extends BaseController
         $resultadoSQL = $conexiondb->execSQL($sql);
         $conexiondb->close();
         return $resultadoSQL;
-
     }
+
     function read()
     {
         $sql = 'select * from estudiantes';
@@ -50,5 +50,14 @@ class EstudianteController extends BaseController
         }
         $conexiondb->close();
         return $estudiantes;
+    }
+
+    function delete($codigo)
+    {
+        $sql = 'delete from estudiantes where codigo=' . $codigo;
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
+        return $resultadoSQL;
     }
 }
