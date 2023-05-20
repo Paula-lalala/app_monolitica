@@ -17,12 +17,13 @@ $estudiantes = $estudianteController->read();
 <head>
     <meta charset="UTF-8">
     <title>Estudiantes</title>
+    <link rel="stylesheet" type="text/css" href="gestion_estudiantes.css">
 </head>
 
 <body>
     <main>
         <h1>Lista de estudiantes</h1>
-        <a href="views/form_estudiante.php">Registrar usuario</a>
+        <a href="views/form_estudiante.php" class="boton">Registrar usuario</a>
         <table>
             <thead>
                 <tr>
@@ -39,8 +40,14 @@ $estudiantes = $estudianteController->read();
                     echo '  <td>' . $estudiante->getNombres() . '</td>';
                     echo '  <td>' . $estudiante->getApellidos() . '</td>';
                     echo '  <td>';
-                    echo '      <a href="views/form_estudiante.php?codigo=' . $estudiante->getCodigo() . '">modificar</a>';
-                    echo '      <a href="views/accion_borrar_estudiante.php?codigo=' . $estudiante->getCodigo() . '">borrar</a>';
+                    $estiloBoton = true;
+                    if ($estiloBoton) {
+                        echo '<a href="views/accion_borrar_estudiante.php?codigo=' . $estudiante->getCodigo() . '" class="boton" style="text-decoration: none;">Modificar</a>';
+                    } else {
+                        echo '<a href="views/accion_borrar_estudiante.php?codigo=' . $estudiante->getCodigo() . '">Modificar</a>';
+                    }
+                    echo '      <a href="views/accion_borrar_estudiante.php?codigo=' . $estudiante->getCodigo() . '" class="boton">borrar</a>';
+                    echo '      <a href="../gestion_actividades/index.php" class="boton">Notas</a>';
                     echo '  </td>';
                     echo '</tr>';
                 }
