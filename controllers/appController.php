@@ -52,6 +52,7 @@ class EstudianteController extends BaseController
         return $estudiantes;
     }
 
+
     function readRow($codigo)
     {
         $sql = 'select * from estudiantes';
@@ -76,4 +77,59 @@ class EstudianteController extends BaseController
         $conexiondb->close();
         return $resultadoSQL;
     }
+}
+
+namespace actividadController;
+use actividad\Actividad;
+use conexionDb\ConexionDbController;
+use baseControlerAc\BaseControllerAc;
+
+class ActividadController extends BaseControllerAc
+{
+
+    function create($actividad)
+    {
+         $sql = 'insert into actividades ';
+         $sql .= '(id,descripcion,nota,codigoEstudiante) values ';
+         $sql .= '(';
+         $sql .= $actividad->getId() . ',';
+         $sql .= '"' . $actividad->getDescripcion() . '",';
+         $sql .= '"' . $actividad->getNota() . '",';
+         $sql .= '"' . $actividad->getCodigoEstudiante() . '"';
+         $sql .= ')';
+         $conexiondb = new ConexionDbController();
+         $resultadoSQL = $conexiondb->execSQL($sql);
+         $conexiondb->close();
+         return $resultadoSQL;
+    }
+    
+    function update($id, $actividad){
+        $sql="update actividades set ";
+        $sql .= 'descripcion="' . $actividad->getDescripcion().'",';
+        $sql .= 'nota="' . $actividad->getNota().'" ';
+        $sql .= ' where id=' . $id;
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
+        return $resultadoSQL;
+    }
+
+    function read()
+    {
+        $sql = 'select * from actividades ';
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $actividades = [];
+        while ($registro = $resultadoSQL->fetch_assoc()) {
+            $actividad = new Actividad();
+            $actividad->setId($registro['id']);
+            $actividad->setDescripcion($registro['descripcion']);
+            $actividad->setNota($registro['nota']);
+            array_push($actividades, $actividad);
+        }
+        $conexiondb->close();
+        return $actividades;
+    }
+
+
 }

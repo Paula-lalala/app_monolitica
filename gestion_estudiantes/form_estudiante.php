@@ -1,8 +1,8 @@
 <?php
-require '../models/estudiante.php';
+require '../Models/Models.php';
 require '../controllers/conexionDbController.php';
 require '../controllers/baseController.php';
-require '../controllers/estudiantesController.php';
+require '../controllers/appController.php';
 
 use estudiante\Estudiante;
 use estudianteController\EstudianteController;
@@ -10,11 +10,11 @@ use estudianteController\EstudianteController;
 
 $codigo= empty($_GET['codigo'])?'':$_GET['codigo'];
 $titulo='Registrar Estudiante';
-$urlAction="accion_registro_estudiante.php";
+$urlAction="../views/accion_registro.php";
 $estudiante= new Estudiante();
 if(!empty($codigo)){
     $titulo= 'modificar Estudiante';
-    $urlAction= 'accion_modificar_estudiante.php';
+    $urlAction= '../views/accion_modificar.php';
     $estudianteController= new EstudianteController();
     $estudiante= $estudianteController ->readRow($codigo);
 }

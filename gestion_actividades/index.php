@@ -1,14 +1,24 @@
 <?php
-require 'models/actividad.php';
-require 'controllers/conexionDbController.php';
-require 'controllers/baseController.php';
-require 'controllers/actividadesController.php';
+require '../Models/Models.php';
+require '../controllers/conexionDbController.php';
+require '../controllers/baseController.php';
+require '../controllers/appController.php';
+
+use estudianteController\EstudianteController;
+$estudianteController = new EstudianteController();
+use estudiante\Estudiante;
 
 use actividadController\ActividadController;
-
 $actividadController = new ActividadController();
 
-$actividades = $actividadController->read();
+$codigoEstudiante=$_GET['codigo'];
+$codigo=$codigoEstudiante;
+$actividades=$actividadController->read();
+$urlAction="form_actividad.php?codigo=".$codigoEstudiante;
+echo($codigoEstudiante);
+$estudiante= new Estudiante();
+$estudiante=$estudianteController->readRow($codigo);
+
 ?>
 
 <!DOCTYPE html>
@@ -17,12 +27,13 @@ $actividades = $actividadController->read();
 <head>
     <meta charset="UTF-8">
     <title>Actividades</title>
+    <link rel="stylesheet" href="../CSS/app.css">
 </head>
 
 <body>
     <main>
         <h1>Lista de actividades</h1>
-        <a href="" class="boton">Registrar Actividades</a>
+        <a id= "registrar" href="<?php echo $urlAction?>" class="boton">Registrar actividades</a>
         <table>
             <thead>
                 <tr>
@@ -32,7 +43,9 @@ $actividades = $actividadController->read();
                 </tr>
             </thead>
             <tbody>
-                <?php
+                <?php     
+                    echo '  <h3>Codigo:' . $estudiante->getCodigo() . '</h1>'; 
+                    echo '  <h3>Nombres: ' . $estudiante->getNombres() . '</h1>';     
                 foreach ($actividades as $actividad) {
                     echo '<tr>';
                     echo '  <td>' . $actividad->getId() . '</td>';
@@ -53,6 +66,7 @@ $actividades = $actividadController->read();
             </tbody>
         </table>
     </main>
+
 </body>
 
 </html>
