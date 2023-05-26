@@ -16,4 +16,5 @@ abstract class BaseControllerAc
     abstract function read();
     abstract function update($id,$model);
     abstract function delete($id);
+    abstract function readRow($id);
 }

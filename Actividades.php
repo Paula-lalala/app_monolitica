@@ -55,9 +55,9 @@ $estudiante=$estudianteController->readRow($codigo);
                      if ($estiloBoton) {
                          echo '<a href="views/Actividades/accion_borrar_actividades.php?id=' . $actividad->getId() . '" class="boton" style="text-decoration: none;">Borrar</a>';
                      } else {
-                         echo '<a href="views/accion_borrar_actividades.php?id=' . $actividad->getId() . '">Borrar</a>';
+                         echo '<a href="views/Actividades/accion_borrar_actividades.php?id=' . $actividad->getId() . '">Borrar</a>';
                      }
-                    echo '      <a href="views/accion_modificar_actividades.php?id=' . $actividad->getId() . '" class="boton">Modificar</a>';
+                    echo '      <a href="'.$urlAction.'?=' . $actividad->getId() . '" class="boton">Modificar</a>';
                     echo '  </td>';
                     echo '</tr>';
                 }
