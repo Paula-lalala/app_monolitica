@@ -1,8 +1,8 @@
 <?php
-require '../Models/Models.php';
-require '../controllers/conexionDbController.php';
-require '../controllers/baseController.php';
-require '../controllers/appController.php';
+require '../../Models/Models.php';
+require '../../controllers/conexionDbController.php';
+require '../../controllers/baseController.php';
+require '../../controllers/appController.php';
 
 use actividad\Actividad;
 use actividadController\ActividadController;
@@ -23,4 +23,4 @@ if ($resultado) {
 }
 ?>
 <br>
-<a href="gestion_estudiantes/index.php">Volver al Inicio</a>
+<a href="../../index_Es.php" class="boton">Volver al Inicio</a>

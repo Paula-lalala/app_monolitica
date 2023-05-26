@@ -131,5 +131,12 @@ class ActividadController extends BaseControllerAc
         return $actividades;
     }
 
-
+    function delete($id)
+    {
+        $sql = 'delete from actividades where id=' . $id;
+        $conexiondb = new ConexionDbController();
+        $resultadoSQL = $conexiondb->execSQL($sql);
+        $conexiondb->close();
+        return $resultadoSQL;
+    }
 }
