@@ -21,4 +21,4 @@ if ($resultado) {
 }
 ?>
 <br>
-<a href="../../index_Es.php" class="boton">Volver al Inicio</a>
+<a href="../../index.php" class="boton">Volver al Inicio</a>

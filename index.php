@@ -49,7 +49,7 @@ $estudiantes = $estudianteController->read();
                         echo '<a href="views/Estudiantes/form_estudiante.php?codigo=' . $estudiante->getCodigo() . '">Modificar</a>';
                     }
                     echo '      <a href="views/Estudiantes/accion_borrar.php?codigo=' . $estudiante->getCodigo() . '" class="boton">borrar</a>';
-                    echo '      <a href="index_Act.php?codigo=' . $estudiante->getCodigo() . '" class="boton">Notas</a>';
+                    echo '      <a href="Actividades.php?codigo=' . $estudiante->getCodigo() . '" class="boton">Notas</a>';
                     echo '  </td>';
                     echo '</tr>';
                 }
