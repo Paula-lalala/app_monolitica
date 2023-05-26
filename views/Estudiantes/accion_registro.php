@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../../CSS/app.css">
+</head>
+<html>
 <?php
 require '../../Models/Models.php';
 require '../../controllers/conexionDbController.php';

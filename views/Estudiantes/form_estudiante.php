@@ -27,26 +27,31 @@ if(!empty($codigo)){
 <head>
     <meta charset="UTF-8">
     <title>Registro Estudiante</title>
+    <link rel="stylesheet" href="../../CSS/app.css">
 </head>
 
 <body>
     <h1><?php echo $titulo;?></h1>
     <form action="<?php echo $urlAction;?>" method="post">
+        <br>
         <label>
-            <span>Codigo:</span>
-            <input type="number" name="codigo" min="1" value ="<?php echo $estudiante->getCodigo(); ?>" required>
+            <span class="input">Codigo:</span>
+            <input type="number" name="codigo" class="input" min="1" value ="<?php echo $estudiante->getCodigo(); ?>" required>
         </label>
         <br>
         <label>
-            <span>Nombre:</span>
-            <input type="text" name="nombre" value ="<?php echo $estudiante->getNombres(); ?>" required>
+            <span class="input">Nombre:</span>
+            <input type="text" name="nombre" class="input" value ="<?php echo $estudiante->getNombres(); ?>" required>
         </label>
         <br>
         <label>
-            <span>Apellidos:</span>
-            <input type="text" name="apellido" value ="<?php echo $estudiante->getApellidos(); ?>" required>
+            <span class="input">Apellidos:</span>
+            <input type="text" name="apellido" class="input" value ="<?php echo $estudiante->getApellidos(); ?>" required>
         </label>
-        <button type="submit">Guardar</button>
+        <br>
+        <br>
+        <br>
+        <button type="submit" class="boton">Guardar</button>
     </form>
 </body>
 

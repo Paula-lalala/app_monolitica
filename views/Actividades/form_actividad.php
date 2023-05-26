@@ -14,11 +14,10 @@ $id= empty($_GET['id'])?'':$_GET['id'];
 $actividad=new Actividad();
 if(!empty($id)){
     $titulo= 'modificar Actividad';
-    $urlAction= 'accion_modificar_estudiante.php?';
+    $urlAction= 'accion_modificar_actividades.php?codigo=' .$codigo;
     $actividadController= new ActividadController();
     $actividad= $actividadController ->readRow($id);
 }else{
-    echo($_GET['codigo']);
     $codigo= $_GET['codigo'];
     $titulo='Registrar Actividad';
     $urlAction="accion_registro_actividad.php?codigo=" .$codigo;

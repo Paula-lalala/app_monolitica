@@ -14,9 +14,16 @@
     background-color: #fdb673;
 }
 
+
 h1 {
   text-align: center;
   margin-top: 40px;
+  color: #ff922b;
+}
+
+.input {
+  text-align: center;
+  margin-top: 20px;
   color: #ff922b;
 }
 
