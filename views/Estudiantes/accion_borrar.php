@@ -11,17 +11,23 @@ require '../../controllers/appController.php';
 
 use estudianteController\EstudianteController;
 
-$margen = '10px';
-$alineacionTexto = 'center';
-
 $estudianteController = new EstudianteController();
 $resultado = $estudianteController->delete($_GET['codigo']);
 if ($resultado) {
-    echo '<h1 style="margin: ' . $margen . '; text-align: ' . $alineacionTexto . ';">Usuario borrado</h1>';
+    $mensaje= 'Actividad registrada';
 } else {
-    echo '<h1style="margin: ' . $margen . '; text-align: ' . $alineacionTexto . ';">No se pudo borrar el usuario</h1>';
+    $mensaje= 'No se pudo registrar la actividad';
 }
 ?>
-
-<a href="../../index.php" class="boton">Volver al Inicio</a>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Borrar Estudiante</title>
+    <link rel="stylesheet" href="../CSS/styles_accion.css">
+</head>
+<header>
+        <h1><?php echo($mensaje) ?></h1>
+</header>
+<br>
+<a href="../../index.php" class="registrar">Volver al Inicio</a>

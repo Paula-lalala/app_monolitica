@@ -22,8 +22,13 @@ $estudiantes = $estudianteController->read();
 
 <body>
     <main>
-        <h1>Lista de estudiantes</h1>
-        <a href="views/Estudiantes/form_estudiante.php" class="boton">Registrar estudiante</a>
+        <header>
+        <h1>LISTA DE ESTUDIANTES</h1>
+        </header>
+        <br>
+        <br>
+        <br>
+        <a href="views/Estudiantes/form_estudiante.php" class="registrar">Registrar estudiante</a>
         <br>
         <table >
         <br>
@@ -32,6 +37,7 @@ $estudiantes = $estudianteController->read();
                     <th>Codigo</th>
                     <th>Nombres</th>
                     <th>Apellidos</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -42,14 +48,9 @@ $estudiantes = $estudianteController->read();
                     echo '  <td>' . $estudiante->getNombres() . '</td>';
                     echo '  <td>' . $estudiante->getApellidos() . '</td>';
                     echo '  <td>';
-                    $estiloBoton = true;
-                    if ($estiloBoton) {
-                        echo '<a href="views/Estudiantes/form_estudiante.php?codigo=' . $estudiante->getCodigo() . '" class="boton" style="text-decoration: none;">Modificar</a>';
-                    } else {
-                        echo '<a href="views/Estudiantes/form_estudiante.php?codigo=' . $estudiante->getCodigo() . '">Modificar</a>';
-                    }
-                    echo '      <a href="views/Estudiantes/accion_borrar.php?codigo=' . $estudiante->getCodigo() . '" class="boton">borrar</a>';
-                    echo '      <a href="Actividades.php?codigo=' . $estudiante->getCodigo() . '" class="boton">Notas</a>';
+                    echo '      <a href="views/Estudiantes/form_estudiante.php?codigo=' . $estudiante->getCodigo() . '">Modificar</a>';
+                    echo '      <a href="views/Estudiantes/accion_borrar.php?codigo=' . $estudiante->getCodigo() . '">borrar</a>';
+                    echo '      <a href="Actividades.php?codigo=' . $estudiante->getCodigo() . '">Notas</a>';
                     echo '  </td>';
                     echo '</tr>';
                 }

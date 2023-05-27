@@ -31,27 +31,33 @@ if(!empty($codigo)){
 </head>
 
 <body>
+    <header>
     <h1><?php echo $titulo;?></h1>
+    </header>
+    <br>
     <form action="<?php echo $urlAction;?>" method="post">
         <br>
         <label>
             <span class="input">Codigo:</span>
+            <br>
             <input type="number" name="codigo" class="input" min="1" value ="<?php echo $estudiante->getCodigo(); ?>" required>
         </label>
         <br>
         <label>
             <span class="input">Nombre:</span>
+            <br>
             <input type="text" name="nombre" class="input" value ="<?php echo $estudiante->getNombres(); ?>" required>
         </label>
         <br>
         <label>
             <span class="input">Apellidos:</span>
+            <br>
             <input type="text" name="apellido" class="input" value ="<?php echo $estudiante->getApellidos(); ?>" required>
         </label>
         <br>
-        <br>
-        <br>
-        <button type="submit" class="boton">Guardar</button>
+        <button type="submit" class="registrar">Guardar</button>
+        <h1 id=salir>O</h1>
+        <a href="../../index.php" class="registrar">Volver al Inicio</a>
     </form>
 </body>
 

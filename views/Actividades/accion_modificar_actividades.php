@@ -24,10 +24,20 @@ $actividad ->setNota($_POST['nota']);
 $actividadController = new ActividadController();
 $resultado = $actividadController->update($actividad->getId(), $actividad);
 if ($resultado) {
-    echo '<h1>Actividad modificada</h1>';
+    $mensaje= 'Actividad modificada';
 } else {
-    echo '<h1>No se pudo modificar la actividad</h1>';
+    $mensaje= 'No se pudo modificar la actividad';
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/styles_accion.css">
+</head>
+<header>
+        <h1><?php echo($mensaje) ?></h1>
+</header>
 <br>
-<a href="../../index.php" class="boton">Volver al Inicio</a>
+<a href="../../index.php" class="registrar">Volver al Inicio</a>

@@ -23,10 +23,20 @@ $estudiante->setApellidos($_POST['apellido']);
 $estudianteController = new EstudianteController();
 $resultado = $estudianteController->update($estudiante->getCodigo(), $estudiante);
 if ($resultado) {
-    echo '<h1>Usuarios modificados</h1>';
+    $mensaje= 'Actividad registrada';
 } else {
-    echo '<h1>No se pudo modificar el usuario</h1>';
+    $mensaje= 'No se pudo registrar la actividad';
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modificar estudiante</title>
+    <link rel="stylesheet" href="../CSS/styles_accion.css">
+</head>
+<header>
+        <h1><?php echo($mensaje) ?></h1>
+</header>
 <br>
-<a href="../../index.php" class="boton">Volver al Inicio</a>
+<a href="../../index.php" class="registrar">Volver al Inicio</a>

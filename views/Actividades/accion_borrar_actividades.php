@@ -11,17 +11,24 @@ require '../../controllers/appController.php';
 
 use actividadController\ActividadController;
 
-$margen = '10px';
-$alineacionTexto = 'center';
 
 $actividadController = new ActividadController();
 $resultado = $actividadController->delete($_GET['id']);
 if ($resultado) {
-    echo '<h1 style="margin: ' . $margen . '; text-align: ' . $alineacionTexto . ';">Actividad borrada</h1>';
+    $mensaje= 'Actividad borrada';
 } else {
-    echo '<h1style="margin: ' . $margen . '; text-align: ' . $alineacionTexto . ';">No se pudo borrar la Actividad</h1>';
+    $mensaje= 'No se pudo borrar la actividad';
 }
 ?>
-
-<a href="../../index.php" class="boton">Volver al Inicio</a>
-</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../CSS/styles_accion.css">
+</head>
+<header>
+        <h1><?php echo($mensaje) ?></h1>
+</header>
+<br>
+<a href="../../index.php" class="registrar">Volver al Inicio</a>
