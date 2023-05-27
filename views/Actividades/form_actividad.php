@@ -9,12 +9,12 @@ use actividad\Actividad;
 use actividadController\ActividadController;
 
 
-
+$codigo = $_GET['codigo'];
 $id= empty($_GET['id'])?'':$_GET['id'];
 $actividad=new Actividad();
 if(!empty($id)){
     $titulo= 'modificar Actividad';
-    $urlAction= "accion_modificar_actividades.php?codigo=" .$codigo;
+    $urlAction = "accion_modificar_actividades.php?codigo=".$codigo."&id=".$id;
     $actividadController= new ActividadController();
     $actividad= $actividadController ->readRow($id);
 }else{

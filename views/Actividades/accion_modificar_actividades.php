@@ -11,9 +11,11 @@ require '../../controllers/conexionDbController.php';
 require '../../controllers/baseController.php';
 require '../../controllers/appController.php';
 
-use actividad\Activid;
+use actividad\Actividad;
 use actividadController\ActividadController;
 
+$id = $_GET['id'];
+$codigo = $_GET['codigo'];
 $actividad = new Actividad();
 $actividad ->setId($_POST['id']);
 $actividad ->setDescripcion($_POST['descripcion']);

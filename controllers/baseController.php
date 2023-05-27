@@ -13,7 +13,7 @@ namespace baseControlerAc;
 abstract class BaseControllerAc
 {
     abstract function create($model);
-    abstract function read();
+    abstract function read($codigoEstudiante);
     abstract function update($id,$model);
     abstract function delete($id);
     abstract function readRow($id);

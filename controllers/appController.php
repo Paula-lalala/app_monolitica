@@ -114,9 +114,10 @@ class ActividadController extends BaseControllerAc
         return $resultadoSQL;
     }
 
-    function read()
+    function read($codigoEstudiante)
     {
         $sql = 'select * from actividades ';
+        $sql .= 'where codigoEstudiante ='. $codigoEstudiante;
         $conexiondb = new ConexionDbController();
         $resultadoSQL = $conexiondb->execSQL($sql);
         $actividades = [];
@@ -125,6 +126,7 @@ class ActividadController extends BaseControllerAc
             $actividad->setId($registro['id']);
             $actividad->setDescripcion($registro['descripcion']);
             $actividad->setNota($registro['nota']);
+            $actividad->setCodigoEstudiante ($registro['codigoEstudiante']);
             array_push($actividades, $actividad);
         }
         $conexiondb->close();
@@ -151,7 +153,6 @@ class ActividadController extends BaseControllerAc
             $actividad->setId($registro['id']);
             $actividad->setDescripcion($registro['descripcion']);
             $actividad->setNota($registro['nota']);
-            $actividad->setCodigoEstudiante($registro['codigo']);
         }
         $conexiondb->close();
         return $actividad;

@@ -13,7 +13,7 @@ $actividadController = new ActividadController();
 
 $codigoEstudiante=$_GET['codigo'];
 $codigo=$codigoEstudiante;
-$actividades=$actividadController->read();
+$actividades=$actividadController->read($codigoEstudiante);
 $urlAction="views/Actividades/form_actividad.php?codigo=".$codigoEstudiante;
 $estudiante= new Estudiante();
 $estudiante=$estudianteController->readRow($codigo);
@@ -53,11 +53,11 @@ $estudiante=$estudianteController->readRow($codigo);
                     echo '  <td>';
                     $estiloBoton = true;
                      if ($estiloBoton) {
-                         echo '<a href="views/Actividades/accion_borrar_actividades.php?id=' . $actividad->getId() . '" class="boton" style="text-decoration: none;">Borrar</a>';
+                         echo '<a href="views/Actividades/accion_borrar_actividades.php?id=' . $actividad->getId() . '" class="boton";">Borrar</a>';
                      } else {
                          echo '<a href="views/Actividades/accion_borrar_actividades.php?id=' . $actividad->getId() . '">Borrar</a>';
                      }
-                    echo '      <a href="'.$urlAction.'?=' . $actividad->getId() . '" class="boton">Modificar</a>';
+                    echo '      <a href="views/Actividades/form_actividad.php?id=' . $actividad->getId() . '&codigo= '. $codigoEstudiante .'" class="boton">Modificar</a>';
                     echo '  </td>';
                     echo '</tr>';
                 }
