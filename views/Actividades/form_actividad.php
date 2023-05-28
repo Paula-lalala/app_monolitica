@@ -10,6 +10,7 @@ use actividadController\ActividadController;
 
 
 $codigo = $_GET['codigo'];
+$nombre= $_GET['nombre'];
 $id= empty($_GET['id'])?'':$_GET['id'];
 $actividad=new Actividad();
 if(!empty($id)){
@@ -40,6 +41,7 @@ if(!empty($id)){
     </header>
     <br>
     <h3>Codigo: <?php echo($codigo) ?></h3>
+    <h3>Nombre: <?php echo($nombre) ?></h3>
     <form action="<?php echo $urlAction;?>" method="post">
         <label>
             <span class="input">Id:</span>

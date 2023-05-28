@@ -37,7 +37,8 @@ $estudiante=$estudianteController->readRow($codigo);
         <br>
         <br>
         <br>
-        <a id= "registrar" href="<?php echo $urlAction?>" class="registrar">Registrar actividades</a>
+        <?php
+        ?>
         <table>
             <thead>
                 <tr>
@@ -50,7 +51,8 @@ $estudiante=$estudianteController->readRow($codigo);
             <tbody>
                 <?php     
                     echo '  <h3>Codigo:  ' . $estudiante->getCodigo() . '</h3>'; 
-                    echo '  <h3>Nombres:   ' . $estudiante->getNombres() . '</h3>'; 
+                    echo '  <h3>Nombres:   ' .$nombre= $estudiante->getNombres() . '</h3>'; 
+                    echo '<a href="views/Actividades/form_actividad.php?codigo= '. $codigoEstudiante .'&nombre= '. $nombre .'" class="registrar">Registrar actividades</a>';
                 $sumatoria = 0.0;    
                 foreach ($actividades as $actividad) {
                     echo '<tr>';
@@ -60,11 +62,11 @@ $estudiante=$estudianteController->readRow($codigo);
                     echo '  <td>';
                     $estiloBoton = true;
                      if ($estiloBoton) {
-                         echo '<a href="views/Actividades/accion_borrar_actividades.php?id=' . $actividad->getId() . '" class="boton";">Borrar</a>';
+                         echo '<a href="views/Actividades/accion_borrar_actividades.php?id=' . $actividad->getId() . '">Borrar</a>';
                      } else {
                          echo '<a href="views/Actividades/accion_borrar_actividades.php?id=' . $actividad->getId() . '">Borrar</a>';
                      }
-                    echo '      <a href="views/Actividades/form_actividad.php?id=' . $actividad->getId() . '&codigo= '. $codigoEstudiante .'" class="boton">Modificar</a>';
+                    echo '      <a href="views/Actividades/form_actividad.php?id=' . $actividad->getId() . '&codigo= '. $codigoEstudiante .'&nombre= '. $nombre .'">Modificar</a>';
                     echo '  </td>';
                     echo '</tr>';
                     $sumatoria += $actividad->getNota(); 
